@@ -11,6 +11,7 @@ module Step where
 import Formulas
 import Tableau
 import HelperFunctions
+
 step :: Node  -> [Tableau]
 step (Nd i positives negatives falses [] [] []) = [[Nd i positives negatives falses [] [] []]]
 step (Nd i positives negatives falses (f:fs) fnegpending fcpending)
@@ -19,10 +20,10 @@ step (Nd i positives negatives falses (f:fs) fnegpending fcpending)
   | fclit  f = [[Nd i positives negatives (removesign f :falses) fs fnegpending fcpending |  removesign f `notElem` positives]]
 \end{code}
 
-Let's take a more complicated case. We make a case distinction: we can either have a true conjunction, a false disjunction or a provably false disjunction. In the last two cases there is a technicality, i.e. we have to make sure that we put the components in the right list. Take the last case, as an example. The subformulas can either lead to no deletion or -- because they are either of the shape $F_C(\varphi \wedge \psi)$ or of the shape $F_C(\neg \varphi)$ -- to a deletion. Hence we have to put them in the proper list accordingly.\\
+Let's take a more complicated case, i.e. rule1. We make a case distinction: we can either have a true conjunction, a false disjunction or a provably false disjunction. In the last two cases there is a technicality, i.e. we have to make sure that we put the components in the right list. Take the last case, as an example. The subformulas can either lead to no deletion or -- because they are either of the shape $F_C(\varphi \wedge \psi)$ or of the shape $F_C(\neg \varphi)$ -- to a deletion. Hence we have to put them in the proper list accordingly.\\
 
 \begin{code}
- | rule1 f = if signof f == T then [[Nd i positives negatives falses ([maketrue y | y <-subf $ removesign f]++fs) fnegpending fcpending]]
+  | rule1 f = if signof f == T then [[Nd i positives negatives falses ([maketrue y | y <-subf $ removesign f]++fs) fnegpending fcpending]]
               else if signof f == F then [[Nd i positives negatives falses ([makenegative y | y <-subf $ removesign f, not (deletewarning ( makenegative y))]++fs) ([makenegative y | y <-subf $ removesign f, deletewarning (makenegative y ) ]++fnegpending) fcpending]]
               else [[Nd i positives negatives falses ([makefalse y | y <-subf $ removesign f, not (deletewarning (makefalse y)) ]++fs) fnegpending ([makefalse y | y <-subf $ removesign f, deletewarning  (makefalse y) ]++fcpending)]]
   | rule2 f = if signof f == T then [[Nd (i++[0]) positives negatives falses (maketrue (head (subf $ removesign f)): fs) fnegpending fcpending, Nd (i++[1]) positives negatives falses (map maketrue (tail (subf (removesign f))) ++ fs) fnegpending fcpending ]]
