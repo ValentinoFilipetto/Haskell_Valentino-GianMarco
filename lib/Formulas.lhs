@@ -3,7 +3,7 @@
 \begin{code}
 module Formulas where
 
-import.Data.List
+import Data.List
 {-# LANGUAGE BlockArguments #-}
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
