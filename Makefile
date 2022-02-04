@@ -3,7 +3,7 @@
 
 all: report.pdf build
 
-report.pdf: *.tex lib/*.lhs test/*.lhs exec/*.lhs references.bib
+report.pdf: *.tex lib/*.lhs Bib.tex
 	latexmk -pdf report
 
 build:
