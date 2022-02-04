@@ -3,6 +3,10 @@
 The following are helper functions which are needed in the definition of step, they are pretty much self explainatory
 
 \begin{code}
+module HelperFunctions
+
+import Formulas
+import Tableau
 
 rule1 :: SFrm -> Bool                  
 rule1 (S (T, C _ _))  = True         
