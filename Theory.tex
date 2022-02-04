@@ -102,3 +102,10 @@ In order to appreciate some other features of the proof system, one can consider
 \end{center}
 
 The branch does not close, and this is in line with the fact that $\psi$ is not intuitionistically valid. What might seem strange at first sight is that, in passing from node $(2)$ to node $(3)$, one has to delete the signed formula $FP$. This is best understood when one switches to the Kripke model perspective. Again, consider a model where $\psi$ does not hold at node $(1)$. Then it must be that $(1)$ has a successor $(2)$ (which as above, can very well be $(1)$ itself) where both $P$ does not hold and $\neg P$ does not hold. The fact that $\neg P$ does not hold at $(2)$ just means that there is \textit{some} successor $(3)$ where $P$ holds. On the other hand, the fact that $P$ does not hold at $(2)$ does not give any guarantees on whether it holds at successors of $(2)$ or not. Therefore a model based on a frame given by the tableau, with valuation $V$ such that $V(p)=\{3\}$ is a model where $\psi$ holds at the root node. This shows that $\psi$ is not an intuitionistic validity. Note that, in case more than one $F$ formula is present at a tableau node, it may be necessary to duplicate tableaux and check whether at least one of the possible expansions leads to a closed tableau.
+
+\newpage
+
+\section{Implementation}
+
+The ideas presented above have been implemented in Haskell as is explained below. The original plan was to adapt a prover developed by Jan Van Eijck, but in reality we ended up writing almost everything from scratch.
+
