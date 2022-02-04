@@ -1,7 +1,7 @@
 
 \section{Theory}
 
-We used \cite{main} as a reference for the tableau rules. In the following we shall give an overview of the calculus. 
+We used \cite{miglioli1994improved} as a reference for the tableau rules. In the following we shall give an overview of the calculus. 
 
 The calculus exploits signed formulas, in particular it uses three signs: $T,F,F_C$. $T \varphi$ intuitively stands for \say{we have a proof of $\varphi$}, $F \varphi$ stands for \say{we don't have a proof of $\varphi$ at the moment} and $F_C \varphi$ stands for \say{$\varphi$ has been refuted}.
 To better understand what this means we can consider the semantics for intuitionistic logic based on intuitionistic Kripke models (IKVs in short).
@@ -32,7 +32,7 @@ Given an intuitionistic propositional formula $\varphi$, an IKV $(W,R,V)$ and $w
     \item $\varphi$ has sign $F_C$ if $w \vDash \neg \varphi$.
 \end{itemize}
 
-The rules which are proposed in \cite{main} are the following:
+The rules which are proposed in \cite{miglioli1994improved} are the following:
 
 \begin{table}[h]
 \Large
@@ -51,7 +51,7 @@ $\begin{array}{ ccc }
 \end{array}$
 \end{table}
 
-where we have left out rules for implication as we restricted our implementation to the implication-free fragment of intuitionistic propositional logic. This choice was made as the rules presented in \cite{main} for intuitionistic implication make it possible to have infinite loops, whereas other sources such as \cite{imp} present more than one rule for implication, depending on the structure of the antecedent and consequent. In both cases, it would have been excessively complicated (and probably not very interesting from the logical and programming point of view) to obtain a complete and always terminating system.
+where we have left out rules for implication as we restricted our implementation to the implication-free fragment of intuitionistic propositional logic. This choice was made as the rules presented in \cite{miglioli1994improved} for intuitionistic implication make it possible to have infinite loops, whereas other sources such as \cite{ferrari2009tableau} present more than one rule for implication, depending on the structure of the antecedent and consequent. In both cases, it would have been excessively complicated (and probably not very interesting from the logical and programming point of view) to obtain a complete and always terminating system.
 
 We divide these nine rules into different groups:
 
