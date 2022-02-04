@@ -1,7 +1,8 @@
 \begin{code}
-module Solve where
+module MyQuickCheck where
 import Formulas
 import Tableau
+import HelperFunctions
 import Step
 import Solve
 import Test.QuickCheck
