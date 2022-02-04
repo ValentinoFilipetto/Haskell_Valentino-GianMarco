@@ -3,7 +3,12 @@
 The solve function is the function that we use to determine theoremhood of a formula. Since the rules for the implication-free fragments of intuitionistic logic and classical logic coincide, it can be used for determining theoremhood of formulas in any of the two systems.\\
 
 \begin{code}
+{-# LANGUAGE BlockArguments #-}
+
 module Solve where
+
+import Data.List
+
 import Formulas
 import Tableau
 import Step
