@@ -3,7 +3,7 @@
 The following are helper functions which are needed in the definition of step, they are pretty much self explainatory
 
 \begin{code}
-module HelperFunctions
+module HelperFunctions where
 
 import Formulas
 import Tableau
