@@ -16,11 +16,3 @@ library:
   source-dirs: lib
 
 
-tests:
-  simpletests:
-    main: simpletests.lhs
-    source-dirs: test
-    dependencies:
-      - report
-      - QuickCheck
-      - hspec
